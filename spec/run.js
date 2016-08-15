@@ -1,3 +1,5 @@
+import Jasmine from 'jasmine'
+
 require('babel-register')();
 
 var jsdom = require('jsdom').jsdom;
@@ -17,4 +19,6 @@ global.navigator = {
   userAgent: 'node.js'
 };
 
-documentRef = document;
+var jasmine = new Jasmine()
+jasmine.loadConfigFile('spec/support/jasmine.json')
+jasmine.execute()
